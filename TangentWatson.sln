@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangentWatson.Datastore", "src\TangentWatson.Datastore\TangentWatson.Datastore.csproj", "{24011C0A-E7BE-4059-9EC9-7D42A2CF4180}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangentWatson.Entities", "src\TangentWatson.Shared\TangentWatson.Entities.csproj", "{5B49193B-A269-4334-BAA1-23F22879F1BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangentWatson.Functions", "src\TangentWatson.Functions\TangentWatson.Functions.csproj", "{FFC57E21-BF56-4EDB-A107-408623ECE12B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangentWatson.Constants", "src\TangentWatson.Constants\TangentWatson.Constants.csproj", "{F70551B7-4108-4957-989A-B0E92D5DD69A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangentWatson.WatsonClient", "src\TangentWatson.WatsonClient\TangentWatson.WatsonClient.csproj", "{312B6C4E-F1CC-437C-AD2E-ADA79F697E88}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangentWatson.Settings", "src\TangentWatson.Settings\TangentWatson.Settings.csproj", "{8E645A64-1E9E-4DF0-A2D6-8108A54E0402}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangentWatson.WatsonClient.Tests", "src\TangentWatson.WatsonClient.Tests\TangentWatson.WatsonClient.Tests.csproj", "{B948FBD3-72F0-4BCA-AA73-B6F79E495D35}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24011C0A-E7BE-4059-9EC9-7D42A2CF4180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24011C0A-E7BE-4059-9EC9-7D42A2CF4180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24011C0A-E7BE-4059-9EC9-7D42A2CF4180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24011C0A-E7BE-4059-9EC9-7D42A2CF4180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B49193B-A269-4334-BAA1-23F22879F1BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B49193B-A269-4334-BAA1-23F22879F1BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B49193B-A269-4334-BAA1-23F22879F1BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B49193B-A269-4334-BAA1-23F22879F1BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFC57E21-BF56-4EDB-A107-408623ECE12B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFC57E21-BF56-4EDB-A107-408623ECE12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFC57E21-BF56-4EDB-A107-408623ECE12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFC57E21-BF56-4EDB-A107-408623ECE12B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F70551B7-4108-4957-989A-B0E92D5DD69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F70551B7-4108-4957-989A-B0E92D5DD69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F70551B7-4108-4957-989A-B0E92D5DD69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F70551B7-4108-4957-989A-B0E92D5DD69A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{312B6C4E-F1CC-437C-AD2E-ADA79F697E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{312B6C4E-F1CC-437C-AD2E-ADA79F697E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{312B6C4E-F1CC-437C-AD2E-ADA79F697E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{312B6C4E-F1CC-437C-AD2E-ADA79F697E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E645A64-1E9E-4DF0-A2D6-8108A54E0402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E645A64-1E9E-4DF0-A2D6-8108A54E0402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E645A64-1E9E-4DF0-A2D6-8108A54E0402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E645A64-1E9E-4DF0-A2D6-8108A54E0402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B948FBD3-72F0-4BCA-AA73-B6F79E495D35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B948FBD3-72F0-4BCA-AA73-B6F79E495D35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B948FBD3-72F0-4BCA-AA73-B6F79E495D35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B948FBD3-72F0-4BCA-AA73-B6F79E495D35}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF805C79-8A9E-49E3-AD7F-EFE7D0C91343}
+	EndGlobalSection
+EndGlobal

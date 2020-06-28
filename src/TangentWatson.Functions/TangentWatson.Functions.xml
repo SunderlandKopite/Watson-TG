@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TangentWatson.Functions</name>
+    </assembly>
+    <members>
+        <member name="M:TangentWatson.Functions.AddComment.Run(Microsoft.AspNetCore.Http.HttpRequest,Microsoft.Azure.WebJobs.ICollector{System.String},Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Adds a comment to be processed
+            </summary>
+            <verb>POST</verb>
+            <url>http://localhost:7071/api/Comment</url>
+            <param name="postBody" in="body" cref="T:System.String">Comment to be analysed</param>
+            <response code="200"><see cref="T:TangentWatson.Entities.RatedComment"/>The message queued for watson</response>
+            <response code="404">No comment specified</response>
+            <response code="500">Internal server error</response>
+        </member>
+        <member name="M:TangentWatson.Functions.GetComment.Run(Microsoft.AspNetCore.Http.HttpRequest,System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Gets a comment and associated information
+            </summary>
+            <verb>GET</verb>
+            <url>http://localhost:7071/api/Comment/{Id}</url>
+            <param name="Id" in="path" cref="T:System.String">Comment ID to retrieve</param>
+            <response code="200"><see cref="T:TangentWatson.Entities.RatedComment"/>The comment and associated data</response>
+            <response code="404">Item not found</response>
+            <response code="400">Invalid guid supplied</response>
+        </member>
+        <member name="M:TangentWatson.Functions.Swagger.RunSwagger(Microsoft.AspNetCore.Http.HttpRequest,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Open API definition
+            </summary>
+            <verb>GET</verb>
+            <url>http://localhost:7071/api/swagger.json</url>
+            <returns>Open API description</returns>
+        </member>
+    </members>
+</doc>
