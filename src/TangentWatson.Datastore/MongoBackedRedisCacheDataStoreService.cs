@@ -28,22 +28,48 @@ namespace TangentWatson.Datastore
 
         private async Task<RatedComment> GetRatedMessageFromCache(Guid id)
         {
-            var cacheResult = await Database.StringGetAsync(new RedisKey(id.ToString()));
-            if (!cacheResult.IsNull)
+            try
             {
-                _logger.LogInformation($"Value for ID {id} found in cache");
-                return JsonSerializer.Deserialize<RatedComment>(cacheResult.ToString());
-            }
+                var cacheResult = await Database.StringGetAsync(new RedisKey(id.ToString()));
+                if (!cacheResult.IsNull)
+                {
+                    _logger.LogInformation($"Value for ID {id} found in cache");
+                    return JsonSerializer.Deserialize<RatedComment>(cacheResult.ToString());
+                }
 
-            return null;
+                return null;
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Error occured reading from cache");
+                return null;
+            }
         }
 
         private async Task AddToCache(RatedComment ratedComment)
         {
-            _logger.LogInformation($"Message id {ratedComment.UniqueID} added to cache");
-            await Database.StringSetAsync(ratedComment.UniqueID.ToString(), JsonSerializer.Serialize(ratedComment));
+            try
+            {
+                _logger.LogInformation($"Message id {ratedComment.UniqueID} added to cache");
+                await Database.StringSetAsync(ratedComment.UniqueID.ToString(), JsonSerializer.Serialize(ratedComment));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occured reading from cache");
+            }
         }
 
+        private async Task ClearFromCache(RatedComment ratedComment)
+        {
+            try
+            {
+                await Database.KeyDeleteAsync(ratedComment.UniqueID.ToString());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error clearing item from cache");
+            }
+        }
         public override async Task<RatedComment> GetMessage(Guid id, bool forUpdate = false)
         {
             var cacheResult = await GetRatedMessageFromCache(id);
@@ -63,7 +89,7 @@ namespace TangentWatson.Datastore
        
         public override async Task UpdateAsFailure(RatedComment comment)
         {
-            var cacheClearTask = Database.KeyDeleteAsync(comment.UniqueID.ToString());
+            var cacheClearTask = ClearFromCache(comment);
             var dbUpdateTask = base.UpdateAsFailure(comment);
             _logger.LogInformation($"Message id {comment.UniqueID} updating flushing from cache");
             await Task.WhenAll(cacheClearTask, dbUpdateTask);
@@ -71,7 +97,7 @@ namespace TangentWatson.Datastore
 
         public override async Task UpdateWithResults(RatedComment comment, WatsonResponse watsonResponse)
         {
-            var cacheClearTask = Database.KeyDeleteAsync(comment.UniqueID.ToString());
+            var cacheClearTask = ClearFromCache(comment);
             var dbUpdateTask = base.UpdateWithResults(comment, watsonResponse);
             _logger.LogInformation($"Message id {comment.UniqueID} updating flushing from cache");
             await Task.WhenAll(cacheClearTask, dbUpdateTask);
