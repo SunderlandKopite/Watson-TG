@@ -44,13 +44,11 @@ namespace TangentWatson.Datastore.Startup
             {
                 builder.Services.AddSingleton<ICommentDataStoreService, MongoBackedRedisCacheDataStoreService>(
                     x => ActivatorUtilities.CreateInstance<MongoBackedRedisCacheDataStoreService>(x, multiplexer, mongoCollection));
-               // builder.Services.AddSingleton<ICommentDataStoreService, MongoBackedRedisCacheDataStoreService>(x=>new MongoBackedRedisCacheDataStoreService(x.GetRequiredService<ILogger<MongoBackedRedisCacheDataStoreService>>(), multiplexer, mongoCollection));
             }
             else
             {
                 builder.Services.AddSingleton<ICommentDataStoreService, MongoDataStoreService>(x =>
                     ActivatorUtilities.CreateInstance<MongoDataStoreService>(x, mongoCollection));
-               // builder.Services.AddSingleton<ICommentDataStoreService, MongoDataStoreService>(x=> new MongoDataStoreService(x.GetRequiredService<ILogger<MongoDataStoreService>>(), mongoCollection));
             }
         }
 
