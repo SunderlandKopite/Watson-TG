@@ -35,7 +35,7 @@ namespace TangentWatson.Datastore
             return dbDoc;
         }
 
-        public virtual async Task<RatedComment> CreateAndStoreMessage(string message)
+        public async Task<RatedComment> CreateAndStoreMessage(string message)
         {
             
             var ratedMessage = new RatedComment()
